@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+body {
+	height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ 	background-image: linear-gradient(to bottom, rgb(21,5,120), rgb(14,14,82));
+}
+
+h2 {
+	font-family: 'Rubik', sans-serif;
+	color: white;
+}
+
+.nav {
+	background-color: rgb(19,6,114);
+}
