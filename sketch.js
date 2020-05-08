@@ -56,34 +56,34 @@ function setup(){
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0,0);
 	canvas.style('z-index', '-1');
-	treeHeight = windowHeight/2;
 	rootX = windowWidth/2;
 	rootY = windowHeight*3/4;
-	p = new PalmTree();
 	
 	sway = createSlider(0, 250, 100);
-	sway.position(rootX + windowWidth/5, rootY - 100);
+	sway.position(rootX + windowWidth/5, rootY - 200);
 	sway.changed(function() {slider(0);});
 	
 	tc = createSlider(1, 40, 8);
-	tc.position(rootX + windowWidth/5, rootY - 100 + 20);
+	tc.position(rootX + windowWidth/5, rootY - 200 + 40);
 	tc.changed(function() {slider(1);});
 	
 	lc = createSlider(0, 100, 8);
-	lc.position(rootX + windowWidth/5, rootY - 100 + 40);
+	lc.position(rootX + windowWidth/5, rootY - 200 + 80);
 	lc.changed(function() {slider(2);});
 	
 	minW = createSlider(1, windowWidth/2, 20);
-	minW.position(rootX + windowWidth/5, rootY - 100 + 60);
+	minW.position(rootX + windowWidth/5, rootY - 200 + 120);
 	minW.changed(function() {slider(3);});
 	
 	maxW = createSlider(1, windowWidth/2, 50);
-	maxW.position(rootX + windowWidth/5, rootY - 100 + 80);
+	maxW.position(rootX + windowWidth/5, rootY - 200 + 160);
 	maxW.changed(function() {slider(4);});
 	
 	sp = createSlider(1, 60, 5);
-	sp.position(rootX + windowWidth/5, rootY - 100 + 100);
+	sp.position(rootX + windowWidth/5, rootY - 200 + 200);
 	sp.changed(function() {slider(5);});
+	
+	windowResized();
 }
 
 //called when tree slider value is changed by user, sometimes must create new palmTree
