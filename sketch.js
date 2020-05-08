@@ -1,5 +1,15 @@
+/*PalmTree animation using P5JS!
+ * Sean McNeely 2020
+ * Tree dances to music and can be reshaped
+ */ 
+
 var canvas;
-var p;
+var p; //will hold palm tree
+
+totalSongs = 2;
+songsLoaded = 0;
+
+//variables determine shape of tree
 rootX = 250;
 rootY = 460;
 leafChunks = 8;
@@ -11,21 +21,19 @@ treeMaxWidth = 50;
 treeMinWidth = 20;
 referenceY = 1500;
 swayWidth = 100;
+
+//starting angle and stepsize of tree sway
 theta = 0.0;
 thetaStep = 0.05;
+
+//number of points sampled on trunk bezier curve, more points -> smoother movement
 curveGranularity = 300;
 
-function preload() {
-    tame = loadSound("cook.mp3");
-    ok = loadSound("oklou.mp3");
-}
-
+//changes size of canvas, tree, and input when window is resized
 function windowResized(){
 	resizeCanvas(windowWidth, windowHeight);
 	rootX = windowWidth/2;
 	rootY = windowHeight*4/5;
-	tameImpala.position(rootX - windowWidth/10, rootY + trunkChunkHeight);
-	oklou.position(rootX + windowWidth/60, rootY + trunkChunkHeight);
 	sway.position(rootX + windowWidth/5, rootY - 100);
 	tc.position(rootX + windowWidth/5, rootY - 100 + 20);
 	lc.position(rootX + windowWidth/5, rootY - 100 + 40);
@@ -35,26 +43,23 @@ function windowResized(){
 	treeHeight = windowHeight/2;
 	trunkChunkHeight = (treeHeight - trunkChunks*trunkBuffer)/trunkChunks;
 	p = new PalmTree();
+	
+	if(typeof tameImpala !== 'undefined' && typeof oklou !== 'undefined'){
+		tameImpala.position(rootX - windowWidth/10, rootY + trunkChunkHeight);
+		oklou.position(rootX + windowWidth/60, rootY + trunkChunkHeight);
+	}
 }
 
 function setup(){
+	tame = loadSound("cook.mp3", loaded);
+    ok = loadSound("oklou.mp3", loaded);
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0,0);
 	canvas.style('z-index', '-1');
+	treeHeight = windowHeight/2;
 	rootX = windowWidth/2;
 	rootY = windowHeight*3/4;
-	treeHeight = windowHeight/2;
 	p = new PalmTree();
-	
-	tameImpala = createButton("Play a Fast Song!");
-	tameImpala.id('tameImpala')
-	tameImpala.mousePressed(function() { playSong(0);});
-	tameImpala.position(rootX - windowWidth/10, rootY + treeHeight / 10);
-	
-	oklou = createButton("Play a Slow Song!");
-	oklou.id('oklou')
-	oklou.mousePressed(function() { playSong(1);});
-	oklou.position(rootX + windowWidth/60, rootY + treeHeight / 10);
 	
 	sway = createSlider(0, 250, 100);
 	sway.position(rootX + windowWidth/5, rootY - 100);
@@ -81,6 +86,7 @@ function setup(){
 	sp.changed(function() {slider(5);});
 }
 
+//called when tree slider value is changed by user, sometimes must create new palmTree
 function slider(changeType){
 	if(changeType == 0){
 		swayWidth = sway.value();
@@ -100,14 +106,15 @@ function slider(changeType){
 	p = new PalmTree();
 }
 
+//called when "play a song" buttons are pressed, plays song
 function playSong(songID){
 	if(songID == 0){
 		if (tame.isPlaying()) {
 		    tame.stop();
-		    document.getElementById("tameImpala").innerHTML = "Play a Fast Song!";
+		    document.getElementById("tameImpala").innerHTML = "Play a Fast Song";
 		  } else {
 			ok.stop();
-			document.getElementById("oklou").innerHTML = "Play a Slow Song!";
+			document.getElementById("oklou").innerHTML = "Play a Slow Song";
 		    tame.play();
 		    thetaStep = (14.76/frameRate())/2;
 		    document.getElementById("tameImpala").innerHTML = "Stop...";
@@ -116,10 +123,10 @@ function playSong(songID){
 	if(songID == 1){
 		if (ok.isPlaying()) {
 		    ok.stop();
-		    document.getElementById("oklou").innerHTML = "Play a Slow Song!";
+		    document.getElementById("oklou").innerHTML = "Play a Slow Song";
 		  } else {
 			tame.stop();
-			document.getElementById("tameImpala").innerHTML = "Play a Fast Song!";
+			document.getElementById("tameImpala").innerHTML = "Play a Fast Song";
 		    ok.play();
 		    thetaStep = (9.948/frameRate())/4;
 		    document.getElementById("oklou").innerHTML = "Stop...";
@@ -129,6 +136,23 @@ function playSong(songID){
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+//callback for when a song asset is loaded, once all songs loaded, displays play buttons
+function loaded(){
+	++songsLoaded;
+	if(songsLoaded < totalSongs){
+		return;
+	}
+	tameImpala = createButton("Play a Fast Song");
+	tameImpala.id('tameImpala')
+	tameImpala.mousePressed(function() { playSong(0);});
+	tameImpala.position(rootX - windowWidth/10, rootY + treeHeight / 10);
+	
+	oklou = createButton("Play a Slow Song");
+	oklou.id('oklou')
+	oklou.mousePressed(function() { playSong(1);});
+	oklou.position(rootX + windowWidth/60, rootY + treeHeight / 10);
 }
 
 class PalmTree{
@@ -150,9 +174,9 @@ class PalmTree{
     for(let i = 0; i < leafChunks; i++){
       this.leafChunks[i] = new LeafPiece(topX, topY);
     }
-     
   }
   
+  //finds closest point on bezier curve to next point on tree, given current y value, "height" of next segment, and estimated slope
   findClosestPoint(y, slope, height){
     var calcHeight = sqrt((height)**2)/(1 + (1/slope**2));
     var newY = y - calcHeight;
@@ -166,6 +190,7 @@ class PalmTree{
     return best;
   }
   
+  //advances palmTree forward one step and redraws tree
   swayStep(){
     theta += thetaStep;
     let sway = swayWidth*sin(theta);
@@ -238,6 +263,7 @@ class TrunkPiece{
   }
 }
 
+//main loop of animation
 function draw() {
   background(19,6,114)
   p.swayStep(); 
