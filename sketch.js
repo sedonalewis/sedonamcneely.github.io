@@ -52,7 +52,7 @@ function windowResized(){
 
 function setup(){
 	tame = loadSound("cook.mp3", loaded);
-    ok = loadSound("oklou.mp3", loaded);
+        ok = loadSound("oklou.mp3", loaded);
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0,0);
 	canvas.style('z-index', '-1');
@@ -113,7 +113,9 @@ function playSong(songID){
 		    tame.stop();
 		    document.getElementById("tameImpala").innerHTML = "Play a Fast Song";
 		  } else {
-			ok.stop();
+			if(ok.isPlaying()){
+			   ok.stop();
+			}
 			document.getElementById("oklou").innerHTML = "Play a Slow Song";
 		    tame.play();
 		    thetaStep = (14.76/frameRate())/2;
@@ -125,7 +127,9 @@ function playSong(songID){
 		    ok.stop();
 		    document.getElementById("oklou").innerHTML = "Play a Slow Song";
 		  } else {
-			tame.stop();
+			if(tame.isPlaying()){
+			   tame.stop();
+			}
 			document.getElementById("tameImpala").innerHTML = "Play a Fast Song";
 		    ok.play();
 		    thetaStep = (9.948/frameRate())/4;
