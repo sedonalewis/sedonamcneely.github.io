@@ -34,12 +34,12 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight);
 	rootX = windowWidth/2;
 	rootY = windowHeight*4/5;
-	sway.position(rootX + windowWidth/5, rootY - 100);
-	tc.position(rootX + windowWidth/5, rootY - 100 + 20);
-	lc.position(rootX + windowWidth/5, rootY - 100 + 40);
-	minW.position(rootX + windowWidth/5, rootY - 100 + 60);
-	maxW.position(rootX + windowWidth/5, rootY - 100 + 80);
-	sp.position(rootX + windowWidth/5, rootY - 100 + 100);
+	sway.position(rootX + windowWidth/5, rootY - 200);
+	tc.position(rootX + windowWidth/5, rootY - 200 + 40);
+	lc.position(rootX + windowWidth/5, rootY - 200 + 80);
+	minW.position(rootX + windowWidth/5, rootY - 200 + 120);
+	maxW.position(rootX + windowWidth/5, rootY - 200 + 160);
+	sp.position(rootX + windowWidth/5, rootY - 200 + 200);
 	treeHeight = windowHeight/2;
 	trunkChunkHeight = (treeHeight - trunkChunks*trunkBuffer)/trunkChunks;
 	p = new PalmTree();
