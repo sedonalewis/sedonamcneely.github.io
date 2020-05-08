@@ -34,12 +34,12 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight);
 	rootX = windowWidth/2;
 	rootY = windowHeight*4/5;
-	sway.position(rootX + windowWidth/5, rootY - 200);
-	tc.position(rootX + windowWidth/5, rootY - 200 + 40);
-	lc.position(rootX + windowWidth/5, rootY - 200 + 80);
-	minW.position(rootX + windowWidth/5, rootY - 200 + 120);
-	maxW.position(rootX + windowWidth/5, rootY - 200 + 160);
-	sp.position(rootX + windowWidth/5, rootY - 200 + 200);
+	sway.position(rootX + windowWidth/5, rootY - 300);
+	tc.position(rootX + windowWidth/5, rootY - 300 + 60);
+	lc.position(rootX + windowWidth/5, rootY - 300 + 120);
+	minW.position(rootX + windowWidth/5, rootY - 300 + 180);
+	maxW.position(rootX + windowWidth/5, rootY - 300 + 240);
+	sp.position(rootX + windowWidth/5, rootY - 300 + 300);
 	treeHeight = windowHeight/2;
 	trunkChunkHeight = (treeHeight - trunkChunks*trunkBuffer)/trunkChunks;
 	p = new PalmTree();
@@ -60,27 +60,21 @@ function setup(){
 	rootY = windowHeight*3/4;
 	
 	sway = createSlider(0, 250, 100);
-	sway.position(rootX + windowWidth/5, rootY - 200);
 	sway.changed(function() {slider(0);});
 	
 	tc = createSlider(1, 40, 8);
-	tc.position(rootX + windowWidth/5, rootY - 200 + 40);
 	tc.changed(function() {slider(1);});
 	
 	lc = createSlider(0, 100, 8);
-	lc.position(rootX + windowWidth/5, rootY - 200 + 80);
 	lc.changed(function() {slider(2);});
 	
 	minW = createSlider(1, windowWidth/2, 20);
-	minW.position(rootX + windowWidth/5, rootY - 200 + 120);
 	minW.changed(function() {slider(3);});
 	
 	maxW = createSlider(1, windowWidth/2, 50);
-	maxW.position(rootX + windowWidth/5, rootY - 200 + 160);
 	maxW.changed(function() {slider(4);});
 	
 	sp = createSlider(1, 60, 5);
-	sp.position(rootX + windowWidth/5, rootY - 200 + 200);
 	sp.changed(function() {slider(5);});
 	
 	windowResized();
