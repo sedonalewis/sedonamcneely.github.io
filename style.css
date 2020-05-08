@@ -1,28 +1,28 @@
 @CHARSET "ISO-8859-1";
 body {
-	height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
- 	background-image: linear-gradient(to bottom, rgb(21,5,120), rgb(14,14,82));
+   height: 100%;
+   margin: 0;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-image: linear-gradient(to bottom, rgb(21,5,120), rgb(14,14,82));
 }
 
 h2 {
-	font-family: 'Rubik', sans-serif;
-	color: white;
+   font-family: 'Rubik', sans-serif;
+   color: white;
 }
 
 #nav {
-	background-color: rgb(19,6,114);
+   background-color: rgb(19,6,114);
 }
 
 button {
-	  font-family: 'Rubik', sans-serif;
-	  border-radius: 5px;
-	  width: 10%;
-	  background: rgb(153,27,30);
-	  color: white;
-	  border: none;
+   font-family: 'Rubik', sans-serif;
+   border-radius: 5px;
+   width: 10%;
+   background: rgb(153,27,30);
+   color: white;
+   border: none;
 }
 
 input[type=range] {
@@ -55,7 +55,7 @@ input[type=range] {
    /* fix for FF unable to apply focus style bug  */
    border: 1px solid white;
    /*required for proper track sizing in FF*/
-   width: 10%;
+   width: 15%;
 }
  input[type=range]::-moz-range-track {
    width: 300px;
