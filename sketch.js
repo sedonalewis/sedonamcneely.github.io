@@ -51,8 +51,8 @@ function windowResized(){
 }
 
 function setup(){
-	tame = loadSound("cook.mp3", loaded);
-        ok = loadSound("oklou.mp3", loaded);
+	//tame = loadSound("cook.mp3", loaded);
+    //ok = loadSound("oklou.mp3", loaded);
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0,0);
 	canvas.style('z-index', '-1');
@@ -65,7 +65,7 @@ function setup(){
 	tc = createSlider(1, 40, 8);
 	tc.changed(function() {slider(1);});
 	
-	lc = createSlider(0, 100, 8);
+	lc = createSlider(0, 35, 8);
 	lc.changed(function() {slider(2);});
 	
 	minW = createSlider(1, windowWidth/2, 20);
@@ -76,6 +76,8 @@ function setup(){
 	
 	sp = createSlider(1, 60, 5);
 	sp.changed(function() {slider(5);});
+	
+	stroke(255);
 	
 	windowResized();
 }
@@ -101,7 +103,7 @@ function slider(changeType){
 }
 
 //called when "play a song" buttons are pressed, plays song
-function playSong(songID){
+/*function playSong(songID){
 	if(songID == 0){
 		if (tame.isPlaying()) {
 		    tame.stop();
@@ -130,14 +132,14 @@ function playSong(songID){
 		    document.getElementById("oklou").innerHTML = "Stop...";
 		  }
 	}
-}
+}*/
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
 //callback for when a song asset is loaded, once all songs loaded, displays play buttons
-function loaded(){
+/*function loaded(){
 	++songsLoaded;
 	if(songsLoaded < totalSongs){
 		return;
@@ -151,7 +153,7 @@ function loaded(){
 	oklou.id('oklou')
 	oklou.mousePressed(function() { playSong(1);});
 	oklou.position(rootX + windowWidth/60, rootY + treeHeight / 10);
-}
+}*/
 
 class PalmTree{
   constructor(){

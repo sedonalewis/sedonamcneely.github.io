@@ -12,14 +12,115 @@ h2 {
    color: white;
 }
 
-#nav {
-   background-color: rgb(19,6,114);
+h3 {
+   font-family: 'Rubik', sans-serif;
+   color: white;
+   font-size: 22px;
+}
+
+
+@media screen and (min-width: 1201px) {
+   #profilePic{
+	 float:left;
+	 border-radius: 15px; 
+	 margin-top:3%; 
+	 margin-right:3%;
+	 max-width: 59%
+	}
+}
+
+@media screen and (max-width: 1200px) {
+  #profilePic{
+	 border-radius: 15px; 
+	 margin-top:3%; 
+	 margin-right:3%;
+	 max-width: 100%
+	}
+}
+
+#contact{
+	margin-top: 5%;
+	margin-right: auto;
+	margin-left: auto;
+	width: 40%
+}
+
+#modal-image-div{
+	text-align: center;
+	padding: 1%
+}
+
+#modal-image{
+	border-radius: 5px;
+}
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: inline-block;
+}
+
+#projectImage{
+	margin-top: 3%;
+}
+
+.filterProjects{
+	margin-right: 1%;
+	margin-top: 1%;
+}
+
+#moreButton{
+	background-color: #f6b7c1;
+	color: black;
+	border: none;
+}
+
+#projectButtons{
+	width: 30%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+#aboutme {
+  width: 40% ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#blurb {
+	display: block;
+ 	width: 60% ;
+ 	margin-top: 3%;
+ 	margin-left: auto ;
+ 	margin-right: auto ;
+}
+
+#projectCards {
+	width: 70% ;
+ 	margin: auto;
+}
+
+.card-img-top{
+	display: block;
+	margin: auto;
+	border-radius: 10px;
+}
+
+.navbar-brand {
+    height: auto;
+}
+
+img {
+    max-width:60%;
 }
 
 button {
    font-family: 'Rubik', sans-serif;
    border-radius: 5px;
-   width: 10%;
    background: rgb(153,27,30);
    color: white;
    border: none;
@@ -118,4 +219,28 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
    background: #ccc;
+}
+
+@media screen and (min-width: 1201px) {
+   #tameImpala{
+	 width: 10%;
+	font-size: 22px;
+	margin-right: 5%
+	}
+	#oklou{
+	width: 10%;
+	font-size: 22px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	#tameImpala{
+	width: 20%;
+	font-size: 22px;
+	margin-right: 5%
+	}
+	#oklou{
+	width: 20%;
+	font-size: 22px;
+	}
 }
