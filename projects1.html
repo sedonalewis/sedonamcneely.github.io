@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sean's Projects</title>
+<meta
+    name="description"
+    content="Sean McNeely, projects, blog and stuff."
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <script defer src=https://cdn.JsDelivr.net/npm/p5/lib/addons/p5.dom.min.js></script>
+	<script defer src=https://cdn.JsDelivr.net/npm/p5/lib/addons/p5.sound.min.js></script>
+    <link rel="stylesheet" href="style.css"/>
+    <script src = "filter.js"></script>
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand navmenu justify-content-between navbar-dark mr-auto">
+  		<a class="navbar-brand" href="index1.html">
+    		<img id="logo" src="logo.png" width="30%" style = "margin-left:5%" alt="Sean's Logo">
+  		</a>
+  		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		 <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+    		<ul class="navbar-nav ml-auto" style = "margin-right:5%; font-family: 'Rubik', sans-serif;">
+      			<li class="nav-item">
+        			<a class="nav-link" href="aboutme1.html" style="color:white;">About me<span class="sr-only">(current)</span></a>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link" href="projects1.html" style="color:white;">Projects</a>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link" href="https://github.com/seanmcneely/Blog" style="color:white;">Blog</a>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link" href="https://github.com/seanmcneely" style="color:white;">GitHub</a>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link" href="contact1.html" style="color:white;">Contact</a>
+      			</li>
+    		</ul>
+    	</div>
+    </nav>
+  	<div id="aboutme">
+		<h2 style="margin-top:3%; text-align: center;">
+			Check out some selected projects:
+		</h2>
+	</div>
+	<div id="projectButtons">
+		<button type="button" class="btn btn-primary filterProjects" id="moreButton" data-toggle="modal" onclick="filterSelection('ML')">
+  					Data Science / ML
+		</button>
+		<button type="button" class="btn btn-primary filterProjects" id="moreButton" data-toggle="modal" onclick="filterSelection('SWE')">
+  					Software Engineering
+		</button>
+		<button type="button" class="btn btn-primary filterProjects" id="moreButton" data-toggle="modal" onclick="filterSelection('all')">
+  					All
+		</button>
+	</div>
+	
+	<div class="card-columns" id="projectCards">
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="saleats.png">
+	  		<div class="card-body">
+	    		<h5 class="card-title">SalEats</h5>
+	    		<p class="card-text">SalEats is a web application similar to Yelp that I developed for a final project in CSCI 201, Software Development. Using Java back end, MVC 
+	    		architecture using Servlets and JSP, and a relational database with MySQL, SalEats allows users to make an account, search for restaurants in their area, add restaurants to their favorites, and 
+	    		even make dinner reservations!</p>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="ferret.png" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">Music Ferret</h5>
+	    		<p class="card-text">MusicFerret was the product of our group final project for CSCI 201. My team developed a web application that helped
+	    		match musicians together to form bands and jam sessions. Based on users' music preferences, availability, instrument skills, and location, our 
+	    		matchmaking algorithm found other local musicians to jam and chat with. </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#musicFerret">
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML">
+	  		<img class="card-img-top" id="projectImage" src="timeSeries.png">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Predict Future Sales Machine Learning Competition</h5>
+	    		<p class="card-text">Our final project in MS Machine Learning challenged us to predict future sales for the Russian 1-C company based on multidimensional
+	    		time series data of past sales of products in all stores. My feature engineering and XG-Boost regression solution scored top 2% on Kaggle at the time.</p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#CML" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML">
+	  		<img class="card-img-top" id="projectImage" src="spiro.png" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">Spatial Data Queries of USC Campus with PostGIS</h5>
+	    		<p class="card-text">After choosing my favorite spots on USC's campus and loading them into a .kml file, I used PostGIS to run some fun 
+	    		spatial database queries. I found the convex hull of the locations in my daily routine, found the 4 nearest neighbors to the dining hall, and 
+	    		found points centered at the library that lay on a spirograph curve, visualizing the whole thing in Google Earth. </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#spatialQueries" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML">
+	  		<img class="card-img-top" id="projectImage" src="ica.JPG">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Machine Learning Analysis of Psilocybin EEG</h5>
+	    		<p class="card-text">In my most exciting ML data analysis project to date, I used deep learning models to predict if subjects had ingested psilocybin 
+	    		mushrooms based on their EEG brainwave recordings. Overcoming the notoriously poor signal to noise ratio of EEG along with a limited dataset of only 22 subjects
+	    		posed a significant challenge. To overcome this, I combined 1D convolutional and LSTM neural nets using Pytorch to mimic the process of data cleaning that takes place in an
+	    		EEG lab.  </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#eeg" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">Multi-Threaded Networking Food Delivery Application</h5>
+	    		<p class="card-text">Using multi-threaded server code, created food delivery application similar to Uber Eats that could handle an arbitrary 
+	    		number of requests for food delivery information and tracked progress of food deliveries from restaurants.</p>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML SWE">
+	  		<img class="card-img-top" id="projectImage" src="percep.JPG">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Python Perceptron</h5>
+	    		<p class="card-text">I created this implementation of the perceptron learning algorithm in Python to present at a machine learning workshop for USC's Association
+	    		for the Advancement of Artificial Intelligence. This workshop was used to introduce and motivate multi-layer-perceptrons!</p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#perceptron" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Voice Cloning with Deep Learning</h5>
+	    		<p class="card-text">This was my first ever deep learning project! A group of friends and I set out for a semester to create a voice cloning system
+	    		using Tensorflow. While our final product was a bit of a flop generalization-wise, I keep this here because I loved working on the project and learned a ton in the process 
+	    		about NLP, sentence/word embeddings, and deep learning architectures. </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#coca" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv ML SWE">
+	  		<img class="card-img-top" id="projectImage" src="multiarmedbandit.jpg">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Personal Website Clickstream Bandit</h5>
+	    		<p class="card-text">This page was brought to you by a machine learning algorithm! I built a custom clickstream data recording 
+	    		framework in Java and JavaScript and implemented Multi-Armed Bandit algorithms to serve the best version of my personal site based on user interaction. </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#bandit" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="parseTree.png">
+	  		<div class="card-body">
+	    		<h5 class="card-title">C++ BASIC Interpreter</h5>
+	    		<p class="card-text">Using C++, I built an interpreter for a subset of the BASIC programming language. The interpreter parses a text file, recursively builds a parse tree, and
+	    		executes operations according to the BASIC instructions.</p>
+	  		</div>
+		</div>
+		<div class="card filterDiv">
+	  		<img class="card-img-top" id="projectImage" src="make.JPG" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">IntuiStride</h5>
+	    		<p class="card-text">First place winner at USC's Makeathon biomedical hackathon, the IntuiStride walker featured a braking system that could 
+	    		detect and prevent dangerous falls for people with Parkinson's disease. The walker's main feature was a pair of ergonomic arm guides that intuitively 
+	    		encouraged proper posture and safe use of the walker and activated a mechanical braking system in the event of a fall forwards.</p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#intuiStride" >
+  					More
+				</button>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="buildBalancedBST.png" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">C++ Balanced Binary Search Trees</h5>
+	    		<p class="card-text">For CSCI 104, Data Structures and Algorithms, I built fully functional implementations of Splay and AVL balanced binary search trees in C++. 
+	    		That semester, I also implemented heaps and hash tables and used these data structures in subsequent projects. </p>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE">
+	  		<img class="card-img-top" id="projectImage" src="" >
+	  		<div class="card-body">
+	    		<h5 class="card-title">C++ Random Walk PageRank Calculator</h5>
+	    		<p class="card-text">Using C++, I created a program that could parse a text file that represented a web graph, and subsequently approximated
+	    		the page rank of each page using a random walk of surfers on the graph. </p>
+	  		</div>
+		</div>
+		<div class="card filterDiv SWE ML">
+	  		<img class="card-img-top" id="projectImage" src="">
+	  		<div class="card-body">
+	    		<h5 class="card-title">Normalized Relational Database Design</h5>
+	    		<p class="card-text">Based on business rules for an imaginary STEM school organization, I designed and outlined a database that would 
+	    		minimize redundancy and maximize consistency through normalization. I used bridge tables to represent many-to-many relationships within constraints 
+	    		of relational databases. </p>
+	    		<button type="button" class="btn btn-primary" id="moreButton" data-toggle="modal" data-target="#erDiagram" >
+	    			More
+				</button>
+	  		</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="bandit" tabindex="-1" role="dialog" aria-labelledby="bandit" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="bandit">MAB Website Version Testing Framework</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      When A/B testing multiple versions of a website, it is common to present each version to some constant fraction of users and evaluate performance
+	      after some predetermined period of time. However, doing this comes at a cost! Users sent to suboptimal versions of a website have a worse experience and 
+	      may generate less revenue. Multi-Armed Bandit testing eliminates much of this cost by adaptively learning which website versions perform best and serving these versions to users more
+	      often. 
+	      <br><br>
+	      I created my own Multi-Armed Bandit website testing framework with Java servlets, AJAX, and JavaScript that learned to serve the best version
+	      of my personal website. This framework includes a custom clickstream data collection library and implements both the epsilon greedy and Upper Confidence Bound 
+	      MAB algorithms. 
+	      <br><br>
+	      I had a lot of fun working on this project. The full code and documentation can be found <a href="https://github.com/seanmcneely/Multi-Armed-Bandit-Website">here!</a>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="eeg" tabindex="-1" role="dialog" aria-labelledby="eeg" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="eeg">EEG Analysis with Cleaning Architecture</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      [Full Write-up Coming Soon! Dataset used was from Swiss study, not from self or anyone else in the US]
+	      <div id="modal-image-div"><img id="modal-image" src="eegHead.JPG"></div>
+	      Results here are preliminary! Check out my <a href="https://github.com/seanmcneely/ShroomNet">github</a> for more information. In this project, I used deep learning to classify eeg time series data
+	      from participants that had consumed either psilocybin or placebo. 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="perceptron" tabindex="-1" role="dialog" aria-labelledby="perceptron" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="perceptron">Python Perceptron Implementation and Workshop</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      It was so much fun to produce, implement, and lead this workshop on the perceptron learning algorithm with USC's branch of AAAI! <br>
+	      <div id="modal-image-div"><img id="modal-image" src="perceptron.png"></div>
+	      This was my first time presenting a full workshop in machine learning, and I greatly appreciated all the wonderful participation and questions I got. I hope that 
+	      attendees took away a stronger understanding of this fundamental algorithm and an appreciation of how principles in the perceptron apply to deep learning!
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="CML" tabindex="-1" role="dialog" aria-labelledby="CML" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="CML">1C Corporation Future Sales Competition</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      To see my final presentation for this ML competition, click <a href="https://drive.google.com/file/d/1gYJRh02T8xW2I2eJfrHzxsMZpDc9WOYY/view?usp=sharing">here!</a>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="erDiagram" tabindex="-1" role="dialog" aria-labelledby="erDiagram" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="erDiagram">E-R Diagram Relational DB Design</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      <div id="modal-image-div"><img id="modal-image" src="smcneelyHW1.jpg"></div>
+	      	To see the ER diagram in more detail, click <a href="https://drive.google.com/file/d/1yjzcNsAf1OYZmc789gPyvRWuaLzGdm5M/view?usp=sharing">here!</a>
+	      	<br>
+	      	<br>
+	      	This database design was based on business rules laid out in an assignment for CSCI 585, Database Systems. I've included the 
+	      	business rules below: 
+	      	<br>
+	      	<br>
+	      	You (a database designer/analyst) have been hired by the owners of a small 'STEM' organization that is interested in offering programming courses in their community, during summer vacation [the classes will be aimed towards high school students who will be on summer break]. 
+	      	Rather than offer just "the usual" (Scratch, Java, Python, Ruby...) coding classes, the owners want to make the classes more fun and engaging - they plan on making the classes be centered around microcontrollers. Students will take coding classes, and also work on hands-on projects (each class or project will last a week, the entire curriculum will last 6 weeks) that will have them run their code in a microcontroller (eg. like so).
+			Below is what the owners have in mind - if their specifications seem incomplete, you are free (expected, in fact) to make relevant assumptions to help create your design [be sure to document them]. <br><br>
+			Students will sign up for a mix of coding classes, and projects. Coding would be taught using Scratch, Processing, Python, Java and JavaScript. Each project would be based on a microcontroller - Arduino, Raspberry Pi, BeagleBoard or micro:bit. Students pay a single flat fee at the beginning, for the entire curriculum.
+			<br><br>Instructors (faculty) would teach a variety of coding classes throughout the day, and also oversee projects when they are not teaching. Each coding class has a textbook. An instructor might specify a textbook for more than one class that he/she teaches (eg. the same Python book could be used for Python I and for Python II). A class would have multiple instructors, and each instructor could potentially use a different text (their favorite) for the same class (which those multiple instructors would teach).
+			Instructors would get paid based on hours they teach, and hours they supervise projects (the supervision pays a higher rate); all instructors are paid identical rates.
+			Projects are done in shared fashion, ie. as a group (typically containing 4 students who all sign up for a common project, eg. a 'Building an arcade game using a Raspberry Pi'). Students would sit around large, square, numbered tables (1,2..) assigned to them, to work on projects; at the start of the term, each table would be provided a big plastic storage box containing all the parts for the project the students will work on; at the end of the term, students will return all the parts presumably in good working order, otherwise they would be charged for damaged items.
+			Each project would require parts specific to it - a microcontroller, and extra hardware such as wheels, motors, sensors, LEDs, switches, enclosures, etc.
+			<br><br>
+			The owners of the institution plan to order project parts from several online suppliers (such as SparkFun, adafruit etc.) - there is expected to be multiple orders placed with multiple vendors, to procure all the items.
+			There are several rooms that will be available for the classes and projects - students will be provided a schedule that will list where and when these will be.
+			There is a small library that contains books about electronics, coding, etc. A student can check out up to 4 books at a time, which need to be returned in 2 weeks.
+			At the end of the curriculum, students will be required to rate their instructors, courses, and projects, using a single score for each (one to five stars).
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="coca" tabindex="-1" role="dialog" aria-labelledby="coca" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="coca">Corpus Callosum NLP Speech Generation</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      Corpus Callosum club instagram post about our deep learning NLP project!
+	      <div id="modal-image-div"><img id="modal-image" src="coca.PNG"></div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="spatialQueries" tabindex="-1" role="dialog" aria-labelledby="spatialQueries" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="spatialQueries">PostGIS Spatial Queries</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      Convex hull of favorite spots on campus! 
+	       <div id="modal-image-div"><img id="modal-image" src="ConvexHull.JPG"></div>
+	       Spirograph curve around USC library
+	       <div id="modal-image-div"><img id="modal-image" src="Spirograph.JPG"></div>
+	       Nearest neighbors to the dining hall... places to work when hungry
+	       <div id="modal-image-div"><img id="modal-image" src="NearestNeighbors.JPG"></div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="intuiStride" tabindex="-1" role="dialog" aria-labelledby="intuiStride" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="intuiStride">IntuiStride</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body project-modal">
+	      <div id="modal-image-div"><img id="modal-image" src="intuitive.gif"></div>
+	      While using a walker may appear simple, proper adjustment and posture is extremely important for the safety of the user. Current walker 
+	      designs are unintuitive to use as they do not promote proper posture, allowing users to hunch or slouch while walking which places the user's center of mass dangerously 
+	      far forwards where falls can occur. The IntuiStride addresses these problems with a pair of ergonomic arm guides, which serve as a gentle reminder for the user
+	      to stand up straight while walking so that their arms comfortably rest on the arm guide foam. In the event of a fall forwards, the arm guides activate a mechanical braking
+	      system, which helps to prevent the walker from slipping out in front of the user on low friction surfaces like tile or linoleum.
+	      <div id="modal-image-div"><img id="modal-image" src="braking.gif"></div>
+	      The arm guides also feature a set of pager motors for silent vibrational tactile cueing. People with Parkinson's disease often suffer from dysrhythmia or freezing 
+	      of timed movements. It can be hard for them to establish a rhythmic gait, making mobility challenging. In the event of gait freezing, IntuiStride's pager motors
+	      begin vibrating an a rhythmic fashion, which helps the user to establish a safe rhythmic gait. 
+	      <br>
+	      <br>
+	      It was a great privilege to learn more about Parkinson's disease from panelists who had been diagnosed with the disease and from professionals who work help treat it. 
+	      To see our group's full presentation, click <a href="https://docs.google.com/presentation/d/1pXq1G3Dnygm1oOq9vgB8RTIVXGppRasfmPetiFh6dno/edit?usp=sharing">here!</a>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="musicFerret" tabindex="-1" role="dialog" aria-labelledby="musicFerret" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="musicFerret">Music Ferret</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      Music Ferret was designed to bring musicians together! My main role within the Music Ferret team was to handle back end and database engineering to 
+	      keep track of user profiles. I opted to use a MySQL relational database for this project, and normalized the tables to allow users to play an arbitrary 
+	      number of instruments and genres. Queries were performed with embedded SQL in Java. A key design consideration here was backwards compatibility. 
+	      We knew when we launched the application that we may want to
+	      add or remove instruments and genres from consideration when creating new user profiles. Instrument skill and genre rating tables with foreign keys corresponding 
+	      to users allowed us to keep track of user preferences without adding columns to the user profile table, greatly helping with backwards compatibility. 
+	      <br><br>
+	      A downside of normalization is that it requires us to use joins to find an individual user's preferences. This may not be ideal as our application scales, and 
+	      we might choose to denormalize. Additionally, it would be beneficial to implement our matchmaking algorithm with embedded SQL rather than loading the whole database
+	      into memory for matchmaking. First of all, this would allow us to match users even when we have more users than would fit in memory. Second, this would allow
+	      us to take advantage of DBMS optimizations. 
+	      <br><br>
+	      Along with the web app itself, our group produced a full suite of tests and documentation for our project. 
+	      <br><br>
+	      I've added a small snippet of code I developed for this app on my GitHub. You can view it <a href="https://github.com/seanmcneely/Coursework/tree/master/MusicFerret">here!</a>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<script src="//localhost:8290/divolte.js" defer async></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+</body>
+</html>
